@@ -1,0 +1,43 @@
+<section class="min-h-[80vh] flex flex-col justify-center items-center relative pt-20 pb-32">
+  
+  <!-- Content Container -->
+  <div class="z-10 text-center max-w-4xl mx-auto px-6 mt-16">
+    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel mb-8 border-saas-accent/30 bg-saas-accent/10 backdrop-blur-md">
+      <span class="relative flex h-3 w-3">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-saas-accent opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-3 w-3 bg-saas-accent"></span>
+      </span>
+      <span class="text-sm font-medium text-saas-accent">System Online • Ready for Deployment</span>
+    </div>
+
+    <h1 class="text-6xl md:text-8xl font-bold tracking-tight mb-6 leading-tight">
+      Deploying <br class="hidden md:block" />
+      <span class="text-gradient">Scalable Logic.</span>
+    </h1>
+    
+    <p class="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">
+      Associate Software Developer recently joined the industry, passionate about building clean, scalable applications and eager to learn complex architectures.
+    </p>
+
+    <!-- Call To Action & Metrics Card -->
+    <div class="flex justify-center items-center mt-8">
+      <!-- Glassmorphism System Status Card -->
+      <div class="glass-panel px-6 py-4 flex flex-wrap justify-center sm:flex-nowrap gap-4 sm:gap-6 text-center sm:text-left w-full sm:w-auto">
+        <div class="w-1/2 sm:w-auto">
+          <div class="text-[10px] sm:text-xs text-gray-500 uppercase tracking-wider mb-1">Global Uptime</div>
+          <div class="text-lg sm:text-xl font-mono text-green-400">{{ uptime() }}</div>
+        </div>
+        <div class="hidden sm:block w-px bg-white/10"></div>
+        <div class="w-1/2 sm:w-auto">
+          <div class="text-[10px] sm:text-xs text-gray-500 uppercase tracking-wider mb-1">Avg Latency</div>
+          <div class="text-lg sm:text-xl font-mono text-blue-400 transition-all duration-300">{{ latency() }}</div>
+        </div>
+        <div class="w-full sm:w-px h-px sm:h-auto bg-white/10 my-2 sm:my-0 sm:block hidden"></div>
+        <div class="w-full sm:w-auto">
+          <div class="text-[10px] sm:text-xs text-gray-500 uppercase tracking-wider mb-1">Active Nodes</div>
+          <div class="text-lg sm:text-xl font-mono text-purple-400 transition-all duration-300">{{ activeNodes() }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

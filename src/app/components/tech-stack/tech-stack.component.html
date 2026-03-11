@@ -1,0 +1,34 @@
+<section class="py-24 relative max-w-6xl mx-auto px-6">
+  
+  <div class="mb-16 text-center md:text-left">
+    <h2 class="text-4xl font-bold mb-4">Supported <span class="text-gradient">Integrations</span></h2>
+    <p class="text-gray-400 max-w-2xl">
+      Production-ready technologies powering the ecosystem. Each module is optimized for maximum performance and reliability in enterprise environments.
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    @for (integration of integrations; track integration.name) {
+      <div class="glass-panel glass-panel-hover p-6 group cursor-pointer">
+        <div class="flex justify-between items-start mb-6">
+          <div class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center border border-white/10 group-hover:bg-saas-accent/20 group-hover:border-saas-accent/50 transition-colors text-white group-hover:text-saas-accent">
+            <lucide-icon [img]="integration.icon" class="w-6 h-6"></lucide-icon>
+          </div>
+          
+          <div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-green-500/10 border border-green-500/20">
+            <div class="w-1.5 h-1.5 rounded-full bg-green-500 drop-shadow-[0_0_5px_rgba(34,197,94,0.8)]"></div>
+            <span class="text-[10px] font-mono uppercase text-green-400">{{ integration.status }}</span>
+          </div>
+        </div>
+        
+        <h3 class="text-xl font-semibold mb-2 group-hover:text-saas-accent transition-colors">{{ integration.name }}</h3>
+        <p class="text-sm text-gray-400">{{ integration.description }}</p>
+
+        <div class="mt-6 flex items-center gap-2 text-xs text-gray-500 font-mono opacity-0 group-hover:opacity-100 transition-opacity">
+          <span>View Documentation</span>
+          <span class="text-saas-accent">→</span>
+        </div>
+      </div>
+    }
+  </div>
+</section>

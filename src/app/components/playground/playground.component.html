@@ -1,0 +1,51 @@
+<section class="py-24 max-w-4xl mx-auto px-6">
+  
+  <div class="mb-12">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-xs font-mono mb-4 uppercase tracking-widest">
+      Beta Feature
+    </div>
+    <h2 class="text-3xl font-bold mb-2">Developer <span class="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500">Playground</span></h2>
+    <p class="text-gray-400 text-sm">Interactive micro-tools executed entirely in the client browser. Example: JWT Decoder.</p>
+  </div>
+
+  <div class="glass-panel border-t-4 border-t-purple-500 overflow-hidden shadow-[0_10px_40px_rgba(168,85,247,0.1)]">
+    <div class="p-6 md:p-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+      
+      <!-- Input -->
+      <div class="flex flex-col h-full">
+        <label class="text-xs font-bold uppercase tracking-wider text-gray-500 mb-3 block">Encoded Token (Edit Me)</label>
+        <textarea 
+          class="w-full flex-1 min-h-[250px] bg-black/40 border border-white/10 rounded-xl p-4 text-xs font-mono text-purple-300 focus:outline-none focus:border-purple-500/50 focus:ring-1 focus:ring-purple-500/50 resize-none break-all"
+          [ngModel]="jwtInput()" 
+          (ngModelChange)="jwtInput.set($event)"
+          spellcheck="false"
+        ></textarea>
+        @if (error()) {
+          <div class="mt-2 text-xs text-red-500 font-mono">{{ error() }}</div>
+        }
+      </div>
+
+      <!-- Output -->
+      <div class="flex flex-col h-full gap-4">
+        
+        <div class="flex-1 glass-panel bg-black/20 p-4 border border-white/5">
+          <label class="text-xs font-bold uppercase tracking-wider text-red-400 mb-3 block">Header <span class="text-gray-600 font-normal">Algorithm & Token Type</span></label>
+          <pre class="text-xs font-mono text-gray-300 overflow-x-auto"><code>{{ decodedHeader() | json }}</code></pre>
+        </div>
+
+        <div class="flex-1 glass-panel bg-black/20 p-4 border border-white/5">
+          <label class="text-xs font-bold uppercase tracking-wider text-blue-400 mb-3 block">Payload <span class="text-gray-600 font-normal">Data</span></label>
+           <pre class="text-xs font-mono text-gray-300 overflow-x-auto"><code>{{ decodedPayload() | json }}</code></pre>
+        </div>
+
+      </div>
+
+    </div>
+    
+    <div class="bg-black/40 px-6 py-3 border-t border-white/5 flex justify-between items-center text-xs font-mono text-gray-500">
+      <span>Status: <span class="text-green-500">Operational</span></span>
+      <span>Engine: Angular Signals</span>
+    </div>
+  </div>
+
+</section>

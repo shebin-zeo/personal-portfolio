@@ -1,0 +1,90 @@
+<section class="py-24 max-w-5xl mx-auto px-6 overflow-hidden">
+  
+  <div class="mb-16 text-center">
+    <h2 class="text-4xl font-bold mb-4">Event-Driven <span class="text-gradient">Topology</span></h2>
+    <p class="text-gray-400 max-w-2xl mx-auto">
+      Visualizing a standard request lifecycle through a highly available, containerized microservices architecture.
+    </p>
+  </div>
+
+  <div class="glass-panel p-8 md:p-12 relative">
+    <!-- Animated Flow Lines (SVG) -->
+    <svg class="absolute inset-0 w-full h-full pointer-events-none" style="z-index: 0;">
+      <!-- Client to Gateway -->
+      <path d="M 150 100 Q 250 100 350 150" fill="none" class="stroke-saas-border" stroke-width="2" stroke-dasharray="4 4" />
+      <path d="M 150 100 Q 250 100 350 150" fill="none" class="stroke-saas-accent drop-shadow-[0_0_8px_rgba(59,130,246,0.8)]" stroke-width="2" stroke-dasharray="100 1000">
+        <animate attributeName="stroke-dashoffset" from="1100" to="0" dur="3s" repeatCount="indefinite"/>
+      </path>
+
+      <!-- Gateway to Auth/Billing -->
+      <path d="M 350 150 Q 450 100 550 80" fill="none" class="stroke-saas-border" stroke-width="2" stroke-dasharray="4 4" />
+      <path d="M 350 150 Q 450 100 550 80" fill="none" class="stroke-green-400 drop-shadow-[0_0_8px_rgba(74,222,128,0.8)]" stroke-width="2" stroke-dasharray="100 1000">
+        <animate attributeName="stroke-dashoffset" from="1100" to="0" dur="3s" begin="1s" repeatCount="indefinite"/>
+      </path>
+      
+      <path d="M 350 150 Q 450 200 550 220" fill="none" class="stroke-saas-border" stroke-width="2" stroke-dasharray="4 4" />
+      <path d="M 350 150 Q 450 200 550 220" fill="none" class="stroke-purple-400 drop-shadow-[0_0_8px_rgba(192,132,252,0.8)]" stroke-width="2" stroke-dasharray="100 1000">
+        <animate attributeName="stroke-dashoffset" from="1100" to="0" dur="3s" begin="1.2s" repeatCount="indefinite"/>
+      </path>
+
+      <!-- Microservices to DB -->
+      <path d="M 550 80 Q 700 80 800 150" fill="none" class="stroke-saas-border" stroke-width="2" stroke-dasharray="4 4" />
+      <path d="M 550 220 Q 700 220 800 150" fill="none" class="stroke-saas-border" stroke-width="2" stroke-dasharray="4 4" />
+      
+      <path d="M 550 80 Q 700 80 800 150" fill="none" class="stroke-yellow-400 drop-shadow-[0_0_8px_rgba(250,204,21,0.8)]" stroke-width="2" stroke-dasharray="100 1000">
+        <animate attributeName="stroke-dashoffset" from="1100" to="0" dur="3s" begin="2s" repeatCount="indefinite"/>
+      </path>
+      <path d="M 550 220 Q 700 220 800 150" fill="none" class="stroke-yellow-400 drop-shadow-[0_0_8px_rgba(250,204,21,0.8)]" stroke-width="2" stroke-dasharray="100 1000">
+        <animate attributeName="stroke-dashoffset" from="1100" to="0" dur="3s" begin="2.2s" repeatCount="indefinite"/>
+      </path>
+    </svg>
+
+    <!-- Node Elements Container -->
+    <div class="relative z-10 hidden md:block" style="height: 300px;">
+      
+      <!-- Client -->
+      <div class="absolute left-0 top-[50%] -translate-y-[50%] flex flex-col items-center">
+        <div class="w-24 h-24 rounded-2xl border-2 {{nodes[0].color}} flex flex-col justify-center items-center backdrop-blur-sm shadow-[0_0_15px_currentColor]">
+          <span class="text-xs font-bold uppercase tracking-widest mt-2 block">{{nodes[0].label}}</span>
+        </div>
+      </div>
+
+      <!-- Gateway -->
+      <div class="absolute left-[30%] top-[50%] -translate-y-[50%] flex flex-col items-center">
+        <div class="w-32 h-16 rounded-xl border-2 {{nodes[1].color}} flex justify-center items-center backdrop-blur-sm shadow-[0_0_15px_currentColor]">
+          <span class="text-xs font-bold uppercase">{{nodes[1].label}}</span>
+        </div>
+      </div>
+
+      <!-- Microservices -->
+      <div class="absolute left-[60%] top-[20%] -translate-y-[50%] flex flex-col items-center">
+        <div class="w-28 h-16 rounded-xl border-2 {{nodes[2].color}} flex justify-center items-center backdrop-blur-sm shadow-[0_0_15px_currentColor]">
+          <span class="text-xs font-bold uppercase">{{nodes[2].label}}</span>
+        </div>
+      </div>
+      <div class="absolute left-[60%] top-[80%] -translate-y-[50%] flex flex-col items-center">
+        <div class="w-28 h-16 rounded-xl border-2 {{nodes[3].color}} flex justify-center items-center backdrop-blur-sm shadow-[0_0_15px_currentColor]">
+          <span class="text-xs font-bold uppercase">{{nodes[3].label}}</span>
+        </div>
+      </div>
+
+      <!-- Database -->
+      <div class="absolute right-0 top-[50%] -translate-y-[50%] flex flex-col items-center">
+        <div class="w-24 h-32 rounded-lg border-2 border-b-8 {{nodes[4].color}} flex justify-center items-center backdrop-blur-sm shadow-[0_0_15px_currentColor]">
+          <span class="text-xs font-bold uppercase text-center block px-2">{{nodes[4].label}}</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Mobile fallback simple stack -->
+    <div class="md:hidden flex flex-col gap-4">
+      @for (node of nodes; track node.id) {
+         <div class="w-full p-4 rounded-xl border-2 {{node.color}} flex justify-between items-center backdrop-blur-sm">
+          <span class="text-sm font-bold uppercase">{{node.label}}</span>
+          <span class="text-xs opacity-50">{{node.type}}</span>
+        </div>
+      }
+    </div>
+  </div>
+</section>

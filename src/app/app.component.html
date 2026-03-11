@@ -1,0 +1,43 @@
+<!-- Premium Background Effects -->
+<div class="bg-noise-overlay"></div>
+
+<main class="relative z-10 w-full overflow-hidden text-gray-200">
+  
+  <!-- Global Navigation Header (Simplified) -->
+  <header class="fixed top-0 w-full z-50 backdrop-blur-lg bg-saas-black/50 border-b border-white/5 h-16 flex items-center justify-between px-6 md:px-12">
+    <div class="font-mono font-bold text-lg tracking-wider text-white">shebin<span class="text-saas-accent">._</span></div>
+    <div class="flex items-center gap-4 text-xs font-mono font-medium text-gray-400">
+      <a href="https://github.com" target="_blank" class="px-3 py-1.5 rounded bg-white/10 hover:bg-white/20 text-white transition-colors">GitHub</a>
+    </div>
+  </header>
+
+  <!-- Component Composition -->
+  <app-hero></app-hero>
+  
+  <div class="relative">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-saas-accent/5 to-transparent pointer-events-none"></div>
+    <app-tech-stack></app-tech-stack>
+  </div>
+
+  <app-architecture></app-architecture>
+  
+  <div class="relative bg-gradient-to-b from-transparent via-white/[0.02] to-transparent">
+     <app-projects></app-projects>
+  </div>
+  
+  <app-hiring-tiers></app-hiring-tiers>
+  
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 max-w-7xl mx-auto items-start pb-32">
+     <app-terminal></app-terminal>
+     <app-playground></app-playground>
+  </div>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/10 py-12 text-center text-sm text-gray-500 font-mono">
+    <p>Deployed {{currentYear}} © Mohamed Shebin T P.</p>
+    <p class="mt-2 text-xs opacity-50">All systems operational.</p>
+  </footer>
+
+</main>
+
+<router-outlet></router-outlet>

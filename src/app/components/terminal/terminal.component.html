@@ -1,0 +1,46 @@
+<section class="py-24 max-w-4xl mx-auto px-6">
+  
+  <div class="mb-12">
+    <h2 class="text-3xl font-bold mb-2 flex items-center gap-3">
+      System Console <span class="text-xs px-2 py-0.5 rounded bg-saas-accent/20 text-saas-accent uppercase font-mono border border-saas-accent/30">Interactive</span>
+    </h2>
+    <p class="text-gray-400 text-sm">Access the developer profile via standard I/O streams.</p>
+  </div>
+
+  <div class="glass-panel rounded-xl overflow-hidden border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.5)]">
+    <!-- Terminal Header -->
+    <div class="bg-black/40 px-4 py-3 flex items-center gap-2 border-b border-white/5 relative">
+      <div class="flex gap-1.5">
+        <div class="w-3 h-3 rounded-full bg-red-500 hover:bg-red-400 transition-colors cursor-pointer"></div>
+        <div class="w-3 h-3 rounded-full bg-yellow-500 hover:bg-yellow-400 transition-colors cursor-pointer"></div>
+        <div class="w-3 h-3 rounded-full bg-green-500 hover:bg-green-400 transition-colors cursor-pointer"></div>
+      </div>
+      <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <span class="text-xs text-gray-500 font-mono">user&#64;portfolio:~</span>
+      </div>
+    </div>
+
+    <!-- Terminal Body -->
+    <div class="p-6 font-mono text-sm min-h-[300px] max-h-[400px] overflow-y-auto bg-saas-black/80 w-full" id="terminal-scroll">
+      
+      @for (line of terminalOutput(); track $index) {
+        <div class="mb-1 text-gray-300" [innerHTML]="line"></div>
+      }
+
+      <!-- Input Line -->
+      <form (submit)="handleCommand($event)" class="flex items-center gap-2 mt-4">
+        <span class="text-saas-accent font-bold">➜</span>
+        <span class="text-white">~</span>
+        <input 
+          type="text" 
+          [ngModel]="userInput()" 
+          (ngModelChange)="userInput.set($event)"
+          name="cmd" 
+          class="bg-transparent border-none outline-none text-gray-200 flex-1 ml-1" 
+          autocomplete="off" 
+          spellcheck="false" 
+          autofocus>
+      </form>
+    </div>
+  </div>
+</section>
